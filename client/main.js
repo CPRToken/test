@@ -24,19 +24,22 @@ $(document).ready(function () {
   $('#save-post').on('click', function() {
     const content = document.getElementById("response").innerHTML;
 
-    // Send a POST request to the server to create a new post
-    $.ajax({
-      type: 'POST',
-      url: '/api/posts',
-      data: { content: content },
-      success: function(response) {
-        console.log(response);
-        alert('Post created successfully!');
-      },
-      error: function(error) {
-        console.error(error);
-        alert('Error creating post!');
-      }
+    // Use WPAPI to create a new post
+    var wp = new WPAPI({
+      endpoint: 'https://cheekyfans.com/wp-json',
+      username: 'Jayroo',
+      password: 'llaves196214'
+    });
+    wp.posts().create({
+      title: 'Your Post Title',
+      content: content,
+      status: 'publish'
+    }).then(function(response) {
+      console.log(response);
+      alert('Post created successfully!');
+    }).catch(function(error) {
+      console.error(error);
+      alert('Error creating post!');
     });
   });
 });
