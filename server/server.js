@@ -141,7 +141,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'POST',
-      url: 'https://test-0lnl.onrender.com/',
+      url: '/',
       headers: {
         'Content-Type': 'application/json',
       },
