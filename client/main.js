@@ -82,18 +82,21 @@
     const max_tokens = $('#max_tokens').val();
     
     $.ajax({
-      type: 'POST',
-      url: 'https://test-0lnl.onrender.com',
-      data: {
-        prompt: prompt,
-        temperature: temperature,
-        max_tokens: max_tokens
+    type: 'POST',
+  url: 'https://test-0lnl.onrender.com/',
+  dataType: 'json',
+  contentType: 'application/json',
+  data: JSON.stringify({
+    prompt: prompt,
+    temperature: temperature,
+    max_tokens: max_tokens
       },
-      success: function(response) {
-        document.getElementById("response").innerHTML = response.result.replace(/\n/g, '<br />');
+     success: function(response) {
+    $('#response').html(response.result.replace(/\n/g, '<br />'));
       }
       
-
+error: function(jqXHR, textStatus, errorThrown) {
+    console.log('Error:', errorThrown);
 
 
 
