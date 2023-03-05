@@ -84,7 +84,7 @@ $(document).ready(function () {
     
     $.ajax({
       type: 'POST',
-      url: 'api/completions',
+      url: 'https://test-0lnl.onrender.com',
       data: {
         prompt: prompt,
         temperature: temperature,
