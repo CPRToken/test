@@ -1,4 +1,3 @@
-$(document).ready(function () {
  function generatePrompt() {
             var prompt = 'write a[genre][theme][mood]with a duration of [duration] [tempo]';
             var genre = $('#genre').val();
